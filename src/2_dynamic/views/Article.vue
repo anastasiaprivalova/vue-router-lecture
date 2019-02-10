@@ -3,24 +3,38 @@
         <Nav />
         <article class="article">
             <div class="article__hero">
-                <img src="./../../assets/article1.jpg" alt="test article hero" />
-                <h2>Test title</h2>
+                <img :src="imageSrc" :alt="`${article.title} article hero`" />
+                <h2>{{ article.title }}</h2>
             </div>
             <p>
-                Aliquam erat volutpat. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Fusce a quam. Vivamus in erat ut urna cursus vestibulum.
+                {{ article.text }}
             </p>
         </article>
     </main>
 </template>
 
 <script>
+    import articles from './../../data/articles.json';
     import Nav from './../components/Nav';
 
     export default {
-        name: 'ArticleContainer',
+        name: 'Article',
+
         components: {
             Nav
-        }
+        },
+
+        computed: {
+            id() {
+                return +this.$route.params.id || 0;
+            },
+            article() {
+                return articles[0].articles.find(article => article.id === this.id) || {};
+            },
+            imageSrc() {
+                return require(`./../../assets/${this.article.imageSrc}`);
+            }
+        },
     }
 </script>
 
