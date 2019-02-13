@@ -6,8 +6,11 @@ import router from './1_intro/router'*/
 /*import App from './2_dynamic/App.vue'
 import router from './2_dynamic/router'*/
 
-import App from './3_nested/App.vue'
-import router from './3_nested/router'
+/*import App from './3_nested/App.vue'
+import router from './3_nested/router'*/
+
+import App from './4_lazy/App.vue'
+import router from './4_lazy/router'
 
 Vue.config.productionTip = false;
 
