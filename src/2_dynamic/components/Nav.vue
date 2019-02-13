@@ -28,6 +28,11 @@
                 links: articles,
             }
         },
+        watch: {
+            $route() {
+                this.isNavVisible = false
+            },
+        },
         mounted() {
             document.addEventListener('pointerdown', this.closeNav)
         },
@@ -99,7 +104,8 @@
         z-index: 1;
     }
 
-    .nav__menu li {
+    .nav__menu a {
+        display: block;
         padding: 15px 0;
     }
 

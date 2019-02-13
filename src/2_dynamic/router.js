@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ArticlesList from './views/ArticlesList.vue'
+import Hub from './views/Hub.vue'
 import Login from './views/Login.vue'
 import Article from './views/Article.vue'
 import NotFound from './views/NotFound'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
     mode: 'history',
@@ -23,8 +23,8 @@ export default new Router({
         },
         {
             path: '/:hub?',
-            name: 'articles-list',
-            component: ArticlesList
+            name: 'hub',
+            component: Hub
         },
         {
             path: '*',

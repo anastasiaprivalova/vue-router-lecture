@@ -1,7 +1,7 @@
 <template>
-    <main class="articles-list">
+    <main class="hub">
         <Nav />
-        <ul class="article-list-items">
+        <ul class="hub-articles">
             <li v-for="article in articles" :key="route + article.id">
                 <router-link :to="`/${article.id}`">{{article.title}}</router-link>
             </li>
@@ -33,7 +33,7 @@
 </script>
 
 <style>
-    .article-list-items {
+    .hub-articles {
         font-size: 20px;
         list-style: none;
         margin: 20px auto 40px;
@@ -41,15 +41,15 @@
         width: 75%;
     }
     
-    .article-list-items li {
+    .hub-articles li {
         border-bottom: 1px dotted var(--theme-color);
         padding: 10px 0;
     }
-    .article-list-items li:last-child {
+    .hub-articles li:last-child {
         border-bottom: 0;
     }
 
-    .article-list-items li a {
+    .hub-articles li a {
         color: var(--theme-color);
         text-decoration: none;
     }
