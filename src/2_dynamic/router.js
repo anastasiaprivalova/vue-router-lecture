@@ -12,22 +12,22 @@ export default new Router({
     base: process.env.BASE_URL,
     routes: [
         {
-            path: '/login',
+            path: '/login', //non-dynamic route
             name: 'login',
             component: Login
         },
         {
-            path: '/:id(\\d+)',
+            path: '/:id(\\d+)', //match with id by regex (only digits)
             name: 'article',
             component: Article
         },
         {
-            path: '/:hub?',
+            path: '/:hub?', //match with hub optional dynamic parameter
             name: 'hub',
             component: Hub
         },
         {
-            path: '*',
+            path: '*', //default match
             name: 'default',
             component: NotFound,
         }
