@@ -9,8 +9,12 @@ import Vue from 'vue'
 // import App from './3_nested/App.vue'
 // import router from './3_nested/router'
 
-import App from './4_lazy/App.vue'
-import router from './4_lazy/router'
+// import App from './4_lazy/App.vue'
+// import router from './4_lazy/router'
+
+
+import App from './5_programmatic/App.vue'
+import router from './5_programmatic/router'
 
 Vue.config.productionTip = false;
 
