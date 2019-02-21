@@ -13,8 +13,11 @@ import Vue from 'vue'
 // import router from './4_lazy/router'
 
 
-import App from './5_programmatic/App.vue'
-import router from './5_programmatic/router'
+// import App from './5_programmatic/App.vue'
+// import router from './5_programmatic/router'
+
+import App from './6_navguards/App.vue'
+import router from './6_navguards/router'
 
 Vue.config.productionTip = false;
 
