@@ -1,7 +1,7 @@
 <template>
     <main class="articles">
         <Nav/>
-        <transition name="slide-right" :duration="1000">
+        <transition :name="transitionName" :duration="1000">
             <router-view/>
         </transition>
     </main>
@@ -10,21 +10,31 @@
 <script>
     import Nav from '../components/Nav';
 
+    const transitions = {
+        SLIDE_RIGHT: 'slide-right',
+        SLIDE_LEFT: 'slide-left',
+    }
+
     export default {
         name: 'Articles',
 
         components: {
             Nav
         },
+
+        data() {
+            return {
+                transitionName: transitions.SLIDE_LEFT,
+            }
+        },
+
+        watch: {
+            '$route' (to, from) {
+                const toDepth = to.meta.depth
+                const fromDepth = from.meta.depth
+
+                this.transitionName = toDepth < fromDepth ? transitions.SLIDE_RIGHT : transitions.SLIDE_LEFT
+            }
+        }
     }
 </script>
-
-<style>
-    .hub,
-    .article {
-        left: 0;
-        position: absolute;
-        transition: all .5s cubic-bezier(.55, 0, .1, 1);
-        right: 0;
-    }
-</style>

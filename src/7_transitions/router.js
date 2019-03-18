@@ -29,6 +29,7 @@ export default new Router({
                     path: 'premium',
                     name: 'premium',
                     component: Premium,
+                    meta: { depth: 2 },
                     beforeEnter: (to, from, next) => {
                         if (localStorage.getItem(storageKey)) {
                             next()
@@ -40,12 +41,14 @@ export default new Router({
                 {
                     path: ':id(\\d+)',
                     name: 'article',
-                    component: Article
+                    component: Article,
+                    meta: { depth: 2 },
                 },
                 {
                     path: ':hub?',
                     name: 'hub',
-                    component: Hub
+                    component: Hub,
+                    meta: { depth: 1 },
                 },
             ]
         },

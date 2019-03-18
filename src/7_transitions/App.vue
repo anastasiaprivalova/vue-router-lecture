@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <transition :name="transitionName" :duration="transitionDuration">
+        <transition :name="transitionName" :duration="1000">
             <router-view/>
         </transition>
     </div>
@@ -8,7 +8,9 @@
 
 <script>    
     const transitions = {
-        SLIDE: 'slide-left',
+        SLIDE_RIGHT: 'slide-right',
+        SLIDE_LEFT: 'slide-left',
+        SLIDE_TOP: 'slide-top',
         FALL: 'fall',
     }
 
@@ -21,18 +23,22 @@
             }
         },
 
-        computed: {
-            transitionDuration() {
-                return this.transitionName === transitions.SLIDE ? 1000 : 3000
-            }
-        },
-
         watch: {
-            '$route' (to) {
-                const toRouteName = to.name
-                const isErrorView = (toRouteName === 'default' || toRouteName === 'premiumDenied')
-                
-                this.transitionName = isErrorView ? transitions.FALL : transitions.SLIDE
+            '$route' (to, from) {
+                switch(to.name) {
+                    case 'premiumDenied':
+                    case 'default':
+                        this.transitionName = transitions.FALL
+                        break
+                    
+                    case 'login':
+                        this.transitionName = transitions.SLIDE_TOP
+                        break
+                    
+                    default:
+                        to.meta.depth < from.meta.depth ? transitions.SLIDE_RIGHT : transitions.SLIDE_LEFT
+                        break
+                }
             }
         }
     }
@@ -69,11 +75,4 @@
         position: relative;
         width: 100vw;
     }
-
-    main {
-        left: 0;
-        max-width: 100vw;
-        position: absolute;
-        right: 0;
-    }    
 </style>

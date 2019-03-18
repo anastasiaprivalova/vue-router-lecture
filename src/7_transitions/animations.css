@@ -1,26 +1,51 @@
+/*SLIDE LEFT & SLIDE RIGHT*/
 .slide-left-enter,
 .slide-right-enter,
 .slide-left-leave-active,
 .slide-right-leave-active {
+    left: 0;
     opacity: 0;
-    transition: all .5s cubic-bezier(.55, 0, .1, 1);
+    position: absolute;
+    right: 0;
+    transition: all 1s cubic-bezier(.55, 0, .1, 1);
 }
 .slide-left-enter,
 .slide-right-leave-active {
-    transform: translateX(30px);
+    transform: translate3d(100%, 0, 0);
 }
 .slide-left-leave-active,
 .slide-right-enter {
-    transform: translate(-30px);
+    transform: translate3d(-100%, 0, 0);
 }
 
-.fall-enter-active {
-    animation: fall .5s linear;
+/*SLIDE TOP*/
+.slide-top-enter-active,
+.slide-top-leave-active {
+    left: 0;
+    position: absolute;
+    right: 0;
+    transition: all 1s cubic-bezier(.55, 0, .1, 1);
+}
+.slide-top-enter-active {
+    transform: translate3d(0, -100%, 0);
+}
+.slide-top-leave-active {
+    transform: translate3d(0, 100%, 0);
+}
+
+/*FALL*/
+.fall-enter-active,
+.fall-leave-active {
+    left: 0;
+    position: absolute;
+    right: 0;
 }
 .fall-leave-active {
     opacity: 0;
 }
-
+.fall-enter-active {
+    animation: fall 1s linear;
+}
 @keyframes fall {
     0% {
         transform: translateY(-400px);
