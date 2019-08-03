@@ -1,4 +1,6 @@
-# lecture
+# Vue-router lecture demo application
+
+## [Demo](https://anastasiaprivalova.github.io/vue-router-lecture/)
 
 ## Project setup
 ```
@@ -15,7 +17,7 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
+### Run tests
 ```
 npm run test
 ```
@@ -25,5 +27,7 @@ npm run test
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Deploy to gh-pages
+```
+./deploy.sh
+```
